@@ -1,6 +1,5 @@
 FROM python:3.11 as requirements-stage
 
-
 WORKDIR /tmp
 
 
@@ -9,7 +8,7 @@ RUN pip install pipenv
 
 COPY ./Pipfile /tmp/
 
-RUN pipenv requirements >> requirements.txt
+RUN pipenv lock -r > requirements.txt
 
 FROM python:3.11
 
