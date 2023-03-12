@@ -7,7 +7,7 @@ WORKDIR /tmp
 RUN pip install pipenv
 
 
-COPY ./Pipfile ./Pipfile.lock /tmp/
+COPY ./Pipfile /tmp/
 
 RUN pipenv requirements >> requirements.txt
 
