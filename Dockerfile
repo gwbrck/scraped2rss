@@ -8,7 +8,7 @@ RUN pip install pipenv
 
 COPY ./Pipfile /tmp/
 
-RUN pipenv lock -r > requirements.txt
+RUN  pipenv lock && pipenv requirements >> requirements.txt
 
 FROM python:3.11
 
