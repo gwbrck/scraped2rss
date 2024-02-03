@@ -57,8 +57,8 @@ class ScrapeUebermedien(BaseScraper):
                         modified_entry['content'] = article_content
                     modified_entries.append(modified_entry)
 
-                return self.toRss("Titel Test", "Beschreibung",
-                                  "https://test.te", modified_entries)
+                return self.toRss("Übermedien", "Übermedien berichtet, Überraschung: über Medien. Seit Anfang 2016 setzen wir uns kontinuierlich mit der Arbeit von Journalistinnen und Journalisten auseinander.",
+                                  "https://uebermedien.de", modified_entries)
             except httpx.HTTPStatusError as e:
                 self.logger.error(f"HTTP error occurred: {e}")
             except httpx.RequestError as e:
