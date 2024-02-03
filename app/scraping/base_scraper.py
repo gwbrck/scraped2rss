@@ -58,7 +58,7 @@ class BaseScraper:
                 e.description(item['description'])
 
             if 'content' in item:
-                e.content(item['content'])
+                e.content(item['content'], type="CDATA")
 
             if 'title' in item:
                 e.title(item['title'])
