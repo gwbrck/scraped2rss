@@ -1,3 +1,5 @@
-/.dir-locals.el
 /.env
 /Pipfile.lock
+*.pyc
+__pycache__/
+
