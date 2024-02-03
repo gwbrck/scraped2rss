@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "scraping2rss"
+version = "0.1.0"
+description = "..."
+authors = ["gregor <g@wbrck.de>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+uvicorn = "^0.27.0"
+fastapi = "^0.109.0"
+feedgen = "^1.0.0"
+pydantic = "^2.5.3"
+httpx = "^0.26.0"
+bs4 = "^0.0.2"
+feedparser = "^6.0.11"
+readability-lxml = "^0.8.1"
