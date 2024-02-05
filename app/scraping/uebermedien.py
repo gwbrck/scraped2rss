@@ -47,7 +47,9 @@ class ScrapeUebermedien(BaseScraper):
                     raise ValueError(
                         f"Failed to parse feed: {feed.bozo_exception}")
 
-                for entry in feed.entries:
+                for i, entry in enumerate(feed.entries):
+                    if i >= 3:
+                        break
                     modified_entry = entry
                     modified_entry['published'] = datetime(
                         *entry['published_parsed'][:6], tzinfo=timezone.utc)
@@ -57,8 +59,10 @@ class ScrapeUebermedien(BaseScraper):
                         modified_entry['content'] = article_content
                     modified_entries.append(modified_entry)
 
-                return self.toRss("Übermedien", "Übermedien berichtet, Überraschung: über Medien. Seit Anfang 2016 setzen wir uns kontinuierlich mit der Arbeit von Journalistinnen und Journalisten auseinander.",
-                                  "https://uebermedien.de", modified_entries)
+                return self.toRss(
+                    "Übermedien",
+                    "Übermedien berichtet, Überraschung: über Medien. Seit Anfang 2016 setzen wir uns kontinuierlich mit der Arbeit von Journalistinnen und Journalisten auseinander.",
+                    "https://uebermedien.de", modified_entries)
             except httpx.HTTPStatusError as e:
                 self.logger.error(f"HTTP error occurred: {e}")
             except httpx.RequestError as e:
